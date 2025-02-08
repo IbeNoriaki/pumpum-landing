@@ -14,6 +14,27 @@ export function Hero() {
   const y2 = useTransform(scrollY, [0, 300], [50, 0]);
   const y3 = useTransform(scrollY, [0, 300], [0, 0]);
 
+  const deviceImages = [
+    {
+      src: "/Device-1.png",
+      alt: "クリエイター応援画面",
+      x: -100,
+      y: y1,
+    },
+    {
+      src: "/Device-1.png",
+      alt: "トークン受け取り画面",
+      x: 0,
+      y: y2,
+    },
+    {
+      src: "/Device-1.png",
+      alt: "安全な取引画面",
+      x: 100,
+      y: y3,
+    },
+  ];
+
   return (
     <Section id="hero" className="min-h-[90vh] w-full overflow-hidden">
       <main className="mx-auto pt-16 sm:pt-24 md:pt-32 text-center relative px-4">
@@ -71,26 +92,7 @@ export function Hero() {
         </div>
 
         <div className="flex flex-nowrap items-center justify-center gap-4 sm:gap-8 h-auto sm:h-[500px] select-none">
-          {[
-            {
-              src: "/Device-1.png",
-              alt: "クリエイター応援画面",
-              x: -100,
-              y: y1,
-            },
-            {
-              src: "/Device-1.png",
-              alt: "トークン受け取り画面",
-              x: 0,
-              y: y2,
-            },
-            {
-              src: "/Device-1.png",
-              alt: "安全な取引画面",
-              x: 100,
-              y: y3,
-            },
-          ].map((image, index) => (
+          {deviceImages.map((image, index) => (
             <motion.img
               key={index}
               src={image.src}

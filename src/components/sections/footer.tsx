@@ -1,14 +1,20 @@
 "use client";
 
-import { Icons } from "@/components/icons";
-import { siteConfig } from "@/lib/config";
+import Link from "next/link";
+import { Icons } from "../icons";
+import dynamic from 'next/dynamic'
 import {
   InstagramLogoIcon,
   LinkedInLogoIcon,
   TwitterLogoIcon,
 } from "@radix-ui/react-icons";
-import Link from "next/link";
-import { ThemeToggle } from "../theme-toggle";
+
+const ThemeToggle = dynamic(
+  () => import('../theme-toggle').then((mod) => mod.ThemeToggle),
+  {
+    ssr: false
+  }
+);
 
 interface Icon {
   icon: JSX.Element;
